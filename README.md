@@ -5,7 +5,7 @@
 
 ## Description
 
-A tool to automatically update your desktop with pictures from unsplash.com
+A tool to automatically update your desktop with pictures from https://unsplash.com
 
 ### Features 
 
