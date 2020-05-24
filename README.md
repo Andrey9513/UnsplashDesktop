@@ -19,7 +19,7 @@ A tool to automatically update your desktop with pictures from https://unsplash.
 
 ### Manual
 1. Run UnsplashDesktop.UI.exe
-2. Click on "U" , appearing in tray
+2. Click on "U" , appearing in tray, choose "Settings"
 3. Enter picture keywords or coollection or user nickname form Unsplash.com
 4. Choose timeot for changing wallpapers
 5. Click start and enjoy
