@@ -12,12 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\Red.ico">
-      <Generator>MSBuild:Compile</Generator>
-    </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Views\" />
   </ItemGroup>
 
@@ -33,6 +27,15 @@
 
   <ItemGroup>
     <ProjectReference Include="..\UnsplashDesktop.Model\UnsplashDesktop.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\u_green.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\u_red.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

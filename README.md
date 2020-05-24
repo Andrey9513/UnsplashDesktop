@@ -15,4 +15,11 @@ A tool to automatically update your desktop with pictures from https://unsplash.
 ### Tutorial and Support
 
 - Tutorials of working with api unsplash: https://source.unsplash.com/
--  Unsplash API docs: https://unsplash.com/developers
+- Unsplash API docs: https://unsplash.com/developers
+
+### Manual
+1. Run UnsplashDesktop.UI.exe
+2. Click on "U" , appearing in tray
+3. Enter picture keywords or coollection or user nickname form Unsplash.com
+4. Choose timeot for changing wallpapers
+5. Click start and enjoy
