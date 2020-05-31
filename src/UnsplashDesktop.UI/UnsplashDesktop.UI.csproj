@@ -5,6 +5,7 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <LangVersion>preview</LangVersion>
+    <ApplicationIcon>Resources\u_green.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
