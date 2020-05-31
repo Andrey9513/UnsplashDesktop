@@ -107,7 +107,7 @@ namespace UnsplashDesktopUI.ViewModels
                 {
                     CommandAction = (p) =>
                     {
-                        Application.Current.MainWindow = new SettingsWindow(new SettingsViewModel(Model));
+                        Application.Current.MainWindow = new SettingsWindow(new SettingsViewModel(Model,this));
                         Application.Current.MainWindow.Show();
                     },
                     CanExecuteFunc = () => Application.Current.MainWindow == null ? true : Application.Current.MainWindow.IsActive
