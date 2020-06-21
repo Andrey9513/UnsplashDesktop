@@ -15,7 +15,7 @@ namespace UnsplashDesktopUI
     {
         private TaskbarIcon notifyIcon;
 
-        private RequestModel DefaultRequest => new RequestModel(Modes.featured, new List<string>() { "winter" }, size: "1920x1080");
+        private RequestModel DefaultRequest => new RequestModel(Modes.featured, new List<string>() { "mountains,winter,lake" }, size: "1920x1080");
 
         private int DefautlTimeout => 10;
 
