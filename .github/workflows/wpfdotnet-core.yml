@@ -84,7 +84,7 @@ jobs:
 
     # Publish app
     - name: Create the app package
-      run: dotnet publish Wap_Project_Path  /p:PublishProfile=Wap_Profile_Path
+      run: dotnet publish $env:Wap_Project_Path  /p:PublishProfile=$env:Wap_Profile_Path
 
     # Upload the MSIX package: https://github.com/marketplace/actions/upload-artifact
     - name: Upload build artifacts
