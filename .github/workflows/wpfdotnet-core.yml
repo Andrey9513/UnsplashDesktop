@@ -59,7 +59,7 @@ jobs:
       Solution_Name: src/UnsplashDesktop.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.     
       Wap_Project_Directory: src/UnsplashDesktop.UI                  # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
       Wap_Project_Path: src/UnsplashDesktop.UI/UnsplashDesktop.UI.csproj                  # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
-
+      Wap_Profile_Path: src/UnsplashDesktop.UI\Properties\PublishProfiles\FolderProfile.pubxml
     steps:
     - name: Checkout
       uses: actions/checkout@v2
@@ -82,14 +82,9 @@ jobs:
       env:
         Configuration: ${{ matrix.configuration }}
 
-    # Create the app package by building and packaging the Windows Application Packaging project
+    # Publish app
     - name: Create the app package
-      run: msbuild $env:Wap_Project_Path /p:Configuration=$env:Configuration /p:UapAppxPackageBuildMode=$env:Appx_Package_Build_Mode /p:AppxBundle=$env:Appx_Bundle /p:Appx_Bundle_Platforms=$env:Appx_Bundle_Platforms /p:PackageCertificateKeyFile=GitHubActionsWorkflow.pfx 
-      env:
-        Appx_Bundle: Always
-        Appx_Bundle_Platforms: x64|x86
-        Appx_Package_Build_Mode: StoreUpload
-        Configuration: ${{ matrix.configuration }}
+      run: dotnet publish Wap_Project_Path  /p:PublishProfile=Wap_Profile_Path
 
     # Upload the MSIX package: https://github.com/marketplace/actions/upload-artifact
     - name: Upload build artifacts
