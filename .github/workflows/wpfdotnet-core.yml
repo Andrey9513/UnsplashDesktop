@@ -91,4 +91,4 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: MSIX Package
-        path: ${{ env.Wap_Project_Directory }}\obj\Release\netcoreapp3.1
+        path: ${{ env.Wap_Project_Directory }}\bin\Release\netcoreapp3.1\
