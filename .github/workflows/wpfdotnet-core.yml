@@ -90,5 +90,5 @@ jobs:
     - name: Upload build artifacts
       uses: actions/upload-artifact@v1
       with:
-        name: MSIX Package
-        path: ${{ env.Wap_Project_Directory }}\bin\Release\netcoreapp3.1\
+        name: UnsplashDesktop
+        path: ${{ env.Wap_Project_Directory }}\bin\Release\netcoreapp3.1\publish
