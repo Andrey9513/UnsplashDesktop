@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
@@ -36,6 +37,7 @@ namespace UnsplashDesktopUI.ViewModels
         private Orientations selectedOrientation;
         private string selectedSize;
         private int selectedImageCount;
+        private readonly NotifyIconViewModel notifyModel;
 
         #endregion
 
@@ -110,6 +112,10 @@ namespace UnsplashDesktopUI.ViewModels
 
         public IEnumerable<string> ImageSizes  => new List<string>()
             {
+                "3200x2000",
+                "2560x1600",
+                "2048x1536",
+                "1920x1200",
                 "1920x1080",
                 "1680x1050",
                 "1600x900",
@@ -133,7 +139,9 @@ namespace UnsplashDesktopUI.ViewModels
         public IEnumerable<string> Timeouts => new List<string>()
             {
                 "10 second",
+                "30 second",
                 "1 minute",
+                "5 minute",
                 "10 minute",
                 "15 minute",
                 "20 minute",
@@ -179,6 +187,7 @@ namespace UnsplashDesktopUI.ViewModels
                         Model.TimeoutSec = SelectedTimeout;
                         Model.SavedImageCount = SelectedImageCount;
                         Model.ChangeRequestModel(request);
+                        notifyModel.Icon.Icon = new System.Drawing.Icon(Path.Combine(Directory.GetCurrentDirectory(), "Resources\\u_green.ico"));
                     }
                 };
         }
@@ -205,7 +214,7 @@ namespace UnsplashDesktopUI.ViewModels
 
         #region Constructors
 
-        public SettingsViewModel(WallpaperManager model)
+        public SettingsViewModel(WallpaperManager model, NotifyIconViewModel notifyModel)
         {
             Model = model;
             SelectedMode = model.Request.Mode;
@@ -220,7 +229,9 @@ namespace UnsplashDesktopUI.ViewModels
                 Modes.featured => model.Request.Features.Trim('?'),
                 _=>model.Request.User
             };
-            
+            this.notifyModel = notifyModel;
+
+
         }
         
         #endregion

@@ -37,8 +37,6 @@ namespace UnsplashDesktop.UI.Converters
                     _ => 1
                 };
                 return timeoutValue * multiplier;
-
-
             }
             catch (Exception exc)
             {

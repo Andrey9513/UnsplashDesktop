@@ -20,7 +20,7 @@
 
     <!-- the application's NotifyIcon - started from App.xaml.cs. Declares its own view model. -->
     <tb:TaskbarIcon x:Key="NotifyIcon"
-                    IconSource="/Resources/Red.ico"
+                    Visibility="Visible"
                     ToolTipText="This is UnpslashDesktop program. To start downloading images from Unsplash click Start."
                     ContextMenu="{StaticResource SysTrayMenu}">
 

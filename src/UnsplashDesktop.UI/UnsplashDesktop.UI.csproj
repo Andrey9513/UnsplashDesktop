@@ -3,6 +3,7 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>net6.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
+    <LangVersion>preview</LangVersion>
     <RuntimeIdentifiers>win-x86;win-x64</RuntimeIdentifiers>
     <ApplicationIcon>Resources\u_green.ico</ApplicationIcon>
   </PropertyGroup>
@@ -24,6 +25,7 @@
   <ItemGroup>
     <ProjectReference Include="..\UnsplashDesktop.Model\UnsplashDesktop.Model.csproj" />
   </ItemGroup>
+
   <ItemGroup>
     <None Update="Resources\u_green.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -32,4 +34,5 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
+
 </Project>

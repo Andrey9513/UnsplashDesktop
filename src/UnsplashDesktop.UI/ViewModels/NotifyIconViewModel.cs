@@ -1,8 +1,13 @@
-﻿using System;
+﻿using Hardcodet.Wpf.TaskbarNotification;
+using System;
+using System.ComponentModel;
 using System.Diagnostics;
+using System.IO;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 using UnsplashDesktopBusinessLogic;
 using UnsplashDesktopUI.Views;
 
@@ -13,13 +18,17 @@ namespace UnsplashDesktopUI.ViewModels
     /// view model is assigned to the NotifyIcon in XAML. Alternatively, the startup routing
     /// in App.xaml.cs could have created this view model, and assigned it to the NotifyIcon.
     /// </summary>
-    public class NotifyIconViewModel
+    public class NotifyIconViewModel : INotifyPropertyChanged
     {
-        public WallpaperManager Model { get; private set; }
+        public event PropertyChangedEventHandler PropertyChanged;
 
-        public NotifyIconViewModel(WallpaperManager model)
+        public WallpaperManager Model { get; private set; }
+        public TaskbarIcon Icon {get; private set;}
+
+        public NotifyIconViewModel(WallpaperManager model, TaskbarIcon icon)
         {
             Model = model;
+            Icon = icon;
         }
 
         /// <summary>
@@ -34,7 +43,9 @@ namespace UnsplashDesktopUI.ViewModels
                     CommandAction = (p) =>
                     {
                         Model.Start();
+                        Icon.Icon = new System.Drawing.Icon(Path.Combine(Directory.GetCurrentDirectory(),"Resources\\u_green.ico"));
                     }
+
                 };
         }
 
@@ -46,7 +57,10 @@ namespace UnsplashDesktopUI.ViewModels
             get=>
                 new DelegateCommand
                 {
-                    CommandAction = (p) => Model.Stop(),
+                    CommandAction = (p) => {
+                        Model.Stop();
+                        Icon.Icon = new System.Drawing.Icon(Path.Combine(Directory.GetCurrentDirectory(), "Resources\\u_red.ico"));
+                    },
                     CanExecuteFunc = () => Model.IsStarted
                 };           
         }
@@ -93,11 +107,16 @@ namespace UnsplashDesktopUI.ViewModels
                 {
                     CommandAction = (p) =>
                     {
-                        Application.Current.MainWindow = new SettingsWindow(new SettingsViewModel(Model));
+                        Application.Current.MainWindow = new SettingsWindow(new SettingsViewModel(Model,this));
                         Application.Current.MainWindow.Show();
                     },
                     CanExecuteFunc = () => Application.Current.MainWindow == null ? true : Application.Current.MainWindow.IsActive
                 };
+        }
+
+        public void OnPropertyChanged([CallerMemberName]string prop = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }

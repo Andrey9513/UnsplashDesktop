@@ -5,14 +5,21 @@
 
 ## Description
 
-This is an implementation of a NotifyIcon (aka system tray icon or taskbar icon) for the WPF platform. It does not just rely on the Windows Forms NotifyIcon component, but is a purely independent control which leverages several features of the WPF framework in order to display rich tooltips, popups, context menus, and balloon messages. It can be used directly in code or embedded in any XAML file.
+A tool to automatically update your desktop with pictures from https://unsplash.com
 
 ### Features 
 
--Download at a certain interval image from Unsplash.com choosen by collection, user or keywords, with selected size and orientation
--Save choosen number of recent images
+- Download at a certain interval image from Unsplash.com choosen by collection, user or keywords, with selected size and orientation.
+- Save choosen number of recent images.
 
 ### Tutorial and Support
 
-Tutorials of working with api unsplash: 
-Unsplash API docs: 
+- Tutorials of working with api unsplash: https://source.unsplash.com/
+- Unsplash API docs: https://unsplash.com/developers
+
+### Manual
+1. Run UnsplashDesktop.UI.exe
+2. Click on "U" , appearing in tray, choose "Settings"
+3. Enter picture keywords or coollection or user nickname form Unsplash.com
+4. Choose timeot for changing wallpapers
+5. Click start and enjoy
