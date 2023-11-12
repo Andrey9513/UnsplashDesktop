@@ -77,10 +77,8 @@ jobs:
       uses: microsoft/setup-msbuild@v1.3.1
 
     # Restore the WPF application to populate the obj folder with RuntimeIdentifiers
-    - name: Restore the WPF application
-      run: msbuild $env:Solution_Name /t:Restore /p:Configuration=$env:Configuration
-      env:
-        Configuration: ${{ matrix.configuration }}
+    - name: Build
+      run: dotnet build -c=Release
 
     # Publish app
     - name: Create the app package
