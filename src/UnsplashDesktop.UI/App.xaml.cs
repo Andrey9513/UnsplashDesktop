@@ -15,9 +15,9 @@ namespace UnsplashDesktopUI
     {
         private TaskbarIcon notifyIcon;
 
-        private RequestModel DefaultRequest => new RequestModel(Modes.featured, new List<string>() { "mountains,winter,lake" }, size: "1920x1080");
+        private RequestModel DefaultRequest => new RequestModel(Modes.featured, new List<string>() { "mountains,winter,lake" }, size: "3200x2000");
 
-        private int DefautlTimeout => 10;
+        private int DefautlTimeout => 300;
 
         private int DefaultImageCount => 10;
 
@@ -34,7 +34,7 @@ namespace UnsplashDesktopUI
 
             //create the notifyicon (it's a resource declared in NotifyIconResources.xaml)
             notifyIcon = (TaskbarIcon)FindResource("NotifyIcon");
-            notifyIcon.Icon = new System.Drawing.Icon(Path.Combine(Directory.GetCurrentDirectory(), "Resources\\u_red.ico"));
+            notifyIcon.Icon = new System.Drawing.Icon(Path.Combine(Directory.GetCurrentDirectory(), "Resources\\u_green.ico"));
             var wallpaperManager = new WallpaperManager(DefaultRequest, DefautlTimeout, DefaultImageCount);
             notifyIcon.DataContext = new NotifyIconViewModel(wallpaperManager, notifyIcon);
         }

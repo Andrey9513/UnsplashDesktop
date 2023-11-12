@@ -29,6 +29,7 @@ namespace UnsplashDesktopUI.ViewModels
         {
             Model = model;
             Icon = icon;
+            Model.Start();
         }
 
         /// <summary>
