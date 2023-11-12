@@ -1,38 +1,35 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
-
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
-    <LangVersion>preview</LangVersion>
+    <RuntimeIdentifiers>win-x86;win-x64</RuntimeIdentifiers>
+    <ApplicationIcon>Resources\u_green.ico</ApplicationIcon>
   </PropertyGroup>
-
   <ItemGroup>
     <None Remove="Red.ico" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Resources\Red.ico">
-      <Generator>MSBuild:Compile</Generator>
-    </Resource>
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Views\" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="Hardcodet.NotifyIcon.Wpf.NetCore" Version="1.0.10" />
-    <PackageReference Include="MahApps.Metro" Version="1.6.5" />
-    <PackageReference Include="System.Management" Version="4.5.0" />
+    <PackageReference Include="MahApps.Metro" Version="2.4.10" />
+    <PackageReference Include="System.Management" Version="6.0.2" />
   </ItemGroup>
-
   <ItemGroup>
     <Page Include="App.xaml" />
   </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\UnsplashDesktop.Model\UnsplashDesktop.Model.csproj" />
   </ItemGroup>
-
+  <ItemGroup>
+    <None Update="Resources\u_green.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\u_red.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>
