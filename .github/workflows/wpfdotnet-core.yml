@@ -72,13 +72,9 @@ jobs:
       with:
         dotnet-version: 3.1.101
 
-    # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
-    - name: Setup MSBuild.exe
-      uses: microsoft/setup-msbuild@v1.3.1
-
     # Restore the WPF application to populate the obj folder with RuntimeIdentifiers
     - name: Build
-      run: dotnet build -c=Release
+      run: dotnet build ${{ env.Solution_Name}} -c=Release
 
     # Publish app
     - name: Create the app package
@@ -89,4 +85,4 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: UnsplashDesktop
-        path: ${{ env.Wap_Project_Directory }}\bin\Release\netcoreapp3.1\publish
+        path: ${{ env.Wap_Project_Directory }}\bin\Release\net6.0-windows\publish
